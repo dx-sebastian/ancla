@@ -278,15 +278,15 @@
                         data-port="${entry.port}"
                         data-idx="${allEntries.indexOf(entry)}">
                 <td class="col-icon">${badge}</td>
-                <td>${escHtml(entry.devProfileLabel)}</td>
-                <td>${entry.port}</td>
-                <td>${escHtml(entry.protocol)}</td>
-                <td>${escHtml(entry.localAddress)}</td>
-                <td>${escHtml(entry.processName)}</td>
-                <td>${entry.processId}</td>
-                <td>${escHtml(entry.state)}</td>
-                <td class="${safetyClass}">${escHtml(entry.safetyLabel)}</td>
-                <td title="${escHtml(entry.executablePath)}">${escHtml(entry.executablePath)}</td>
+                <td class="col-dev"      data-label="${escHtml(t('devCol'))}">${escHtml(entry.devProfileLabel)}</td>
+                <td class="col-port"     data-label="${escHtml(t('portCol'))}">${entry.port}</td>
+                <td class="col-protocol" data-label="${escHtml(t('protocolCol'))}">${escHtml(entry.protocol)}</td>
+                <td class="col-address"  data-label="${escHtml(t('addressCol'))}">${escHtml(entry.localAddress)}</td>
+                <td class="col-process"  data-label="${escHtml(t('processCol'))}">${escHtml(entry.processName)}</td>
+                <td class="col-pid"      data-label="${escHtml(t('pidCol'))}">${entry.processId}</td>
+                <td class="col-state"    data-label="${escHtml(t('stateCol'))}">${escHtml(entry.state)}</td>
+                <td class="col-safety ${safetyClass}" data-label="${escHtml(t('safetyCol'))}">${escHtml(entry.safetyLabel)}</td>
+                <td class="col-path"     data-label="${escHtml(t('pathCol'))}" title="${escHtml(entry.executablePath)}">${escHtml(entry.executablePath)}</td>
             </tr>`;
         }).join('');
 

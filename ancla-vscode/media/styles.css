@@ -321,6 +321,77 @@ tr.row-protected { background: color-mix(in srgb, var(--vscode-editor-background
     cursor:      pointer;
 }
 
+/* ── Responsive ──────────────────────────────────────────── */
+
+/* Step 1 (< 900px): drop the path column */
+@media (max-width: 900px) {
+    #th-path, .col-path { display: none; }
+}
+
+/* Step 2 (< 680px): drop the address column */
+@media (max-width: 680px) {
+    #th-address, .col-address { display: none; }
+}
+
+/* Step 3 (< 520px): drop protocol + pid */
+@media (max-width: 520px) {
+    #th-protocol, .col-protocol,
+    #th-pid,      .col-pid { display: none; }
+}
+
+/* Step 4 (< 400px): card / stacked layout */
+@media (max-width: 400px) {
+    /* Let the page scroll naturally at very small sizes */
+    body           { overflow: auto; }
+    #app           { height: auto; overflow: visible; }
+    #table-wrap    { overflow: visible; }
+
+    #ports-table   { table-layout: auto; }
+    #ports-table thead { display: none; }
+
+    #ports-table tbody tr {
+        display:       block;
+        margin:        0 0 6px;
+        border:        1px solid var(--vscode-panel-border);
+        border-left:   3px solid var(--vscode-panel-border);
+        border-radius: 4px;
+        padding:       2px 0;
+    }
+    #ports-table tbody tr.row-dev       { border-left-color: #2472c8; }
+    #ports-table tbody tr.row-protected { border-left-color: #c84b2f; }
+
+    #ports-table td {
+        display:         flex;
+        justify-content: space-between;
+        align-items:     center;
+        padding:         3px 10px;
+        border:          none;
+        white-space:     normal;
+        max-width:       none;
+        overflow:        visible;
+        text-overflow:   unset;
+    }
+
+    /* Label pulled from the data-label attribute */
+    #ports-table td::before {
+        content:        attr(data-label);
+        font-size:      10px;
+        font-weight:    600;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color:          var(--vscode-descriptionForeground);
+        flex-shrink:    0;
+        margin-right:   8px;
+    }
+
+    /* Badge cell: no label, just left-aligned */
+    .col-icon         { justify-content: flex-start; }
+    .col-icon::before { display: none; }
+
+    /* Hide less important fields in card mode */
+    .col-dev, .col-protocol, .col-address { display: none; }
+}
+
 /* ── Scrollbar ────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
