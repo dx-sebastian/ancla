@@ -2,15 +2,24 @@
   "name": "ancla",
   "displayName": "Ancla – Port Manager",
   "description": "View and manage active network ports from VS Code",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publisher": "SebastianLondoo",
   "repository": {
     "type": "git",
     "url": "https://github.com/dx-sebastian/ancla.git"
   },
+  "bugs": {
+    "url": "https://github.com/dx-sebastian/ancla/issues"
+  },
+  "homepage": "https://github.com/dx-sebastian/ancla",
   "engines": { "vscode": "^1.85.0" },
   "icon": "media/ancla-icon-128.png",
   "categories": ["Other"],
+  "keywords": ["ports", "network", "port-manager", "netstat", "process", "kill-process", "dev-tools"],
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
