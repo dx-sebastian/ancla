@@ -1,0 +1,59 @@
+{
+  "name": "ancla",
+  "displayName": "Ancla – Port Manager",
+  "description": "View and manage active network ports from VS Code",
+  "version": "1.0.0",
+  "publisher": "SebastianLondoo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dx-sebastian/ancla.git"
+  },
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ancla-sidebar",
+          "title": "Ancla Port Manager",
+          "icon": "media/ancla-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ancla-sidebar": [
+        {
+          "type": "webview",
+          "id": "ancla.sidebarView",
+          "name": "Port Manager"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "ancla.openPanel",
+        "title": "Ancla: Open Port Manager",
+        "icon": "$(server-process)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "ancla.openPanel",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
