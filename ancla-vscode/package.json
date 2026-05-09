@@ -9,6 +9,7 @@
     "url": "https://github.com/dx-sebastian/ancla.git"
   },
   "engines": { "vscode": "^1.85.0" },
+  "icon": "media/ancla-icon-128.png",
   "categories": ["Other"],
   "activationEvents": [],
   "main": "./out/extension.js",
